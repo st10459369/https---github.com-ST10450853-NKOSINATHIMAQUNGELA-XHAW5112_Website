@@ -3,87 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Six-Month Courses - Empower The Nation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Six-months-courses-and-fees | Empowering The Nation</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #C4F6D6; /* Light mint green background from the palette */
+            color: #444444;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #A7EED0; /* Lighter green for the header */
+            color: #444444;
+            padding: 15px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #A7EED0; /* Lighter green for navigation */
+            padding: 10px;
+            border-bottom: 2px solid #C4F6D6; 
+        }
+
+        nav a {
+            color: #444444;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            background-color: #F6F7C4; /* Pastel yellow hover effect */
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Course Card Styling */
+        .course-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 15px;
+            transition: transform 0.2s;
+            width: calc(25% - 40px); /* 4 cards per row */
+            display: inline-block;
+            vertical-align: top; /* Align cards vertically */
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enrollment Form Styling */
+        .enroll-form {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #F6F7C4; /* Pastel yellow form background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .enroll-form input {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .enroll-form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .enroll-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Links and Bottom Styling */
+        .footer-links, .footer-bottom {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        footer {
+            background-color: #A7EED0;
+            padding: 20px;
+            text-align: center;
+            color: #444444;
+            border-top: 2px solid #C4F6D6;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 8px;
+                font-size: 1em;
+            }
+
+            .enroll-form {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .course-card {
+                width: calc(100% - 40px); /* Full width for mobile */
+            }
+
+            input[type="text"], input[type="email"], textarea {
+                font-size: 0.9em;
+            }
+
+            input[type="submit"] {
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img class="logo" src="C:\Users\anter\Downloads\XHAW5112\XHAW5112\Pictures\1234.jpg" alt="logo"/>
-            <h1><a href="HomePage.html">Empower The Nation</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="sixMonthsCoursesPage.html">Six Month Courses</a></li>
-                    <li><a href="sixWeekCoursesPage.html">Six Week Courses</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="calculateFees.html">Calculate Fees</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="courses-page">
-        <h2>Six-Month Courses</h2>
-        <div class="course-list">
-            <div class="course-item">
-                <h3>First Aid</h3>
-                <p><strong>Fees: R1500</strong></p>
-                <p><strong>Purpose:</strong> To provide first aid awareness and basic life support</p>
-                <p><strong>Content:</strong></p>
-                <ul>
-                    <li>Wounds and bleeding</li>
-                    <li>Burns and fractures</li>
-                    <li>Emergency scene management</li>
-                    <li>Cardio-Pulmonary Resuscitation (CPR)</li>
-                    <li>Respiratory distress (e.g., choking, blocked airway)</li>
-                </ul>
-                <a href="allCourses.html" class="btn enroll-btn">Enroll</a>
-            </div>
+<header>
+    <img src="_images/Empowering_The_Nation_logo.jpg" alt="Logo for Empowering the Nation">
+</header>
 
-            <div class="course-item">
-                <h3>Sewing</h3>
-                <p><strong>Fees: R1500</strong></p>
-                <p><strong>Purpose:</strong> To provide alterations and new garment tailoring services</p>
-                <p><strong>Content:</strong></p>
-                <ul>
-                    <li>Types of stitches</li>
-                    <li>Threading a sewing machine</li>
-                    <li>Sewing buttons, zips, hems, and seams</li>
-                    <li>Alterations</li>
-                    <li>Designing and sewing new garments</li>
-                </ul>
-                <a href="allCourses.html" class="btn enroll-btn">Enroll</a>
-            </div>
+<nav>
+    <a href="six-month">Six Month Courses</a>
+    <a href="six-week">Six Week Courses</a>
+    <a href="contact">Contact Us</a>
+    <a href="calculate-fees">Calculate Fees</a>
+</nav>
 
-            <div class="course-item">
-                <h3>Landscaping</h3>
-                <p><strong>Fees: R1500</strong></p>
-                <p><strong>Purpose:</strong> To provide landscaping services for new and established gardens</p>
-                <p><strong>Content:</strong></p>
-                <ul>
-                    <li>Indigenous and exotic plants and trees</li>
-                    <li>Fixed structures (fountains, statues, benches, etc.)</li>
-                    <li>Balancing of plants and trees in a garden</li>
-                    <li>Aesthetics of plant shapes and colors</li>
-                    <li>Garden layout</li>
-                </ul>
-                <a href="allCourses.html" class="btn enroll-btn">Enroll</a>
-            </div>
+<h2>Six-Month Courses</h2>
 
-            <div class="course-item">
-                <h3>Life Skills</h3>
-                <p><strong>Fees: R1500</strong></p>
-                <p><strong>Purpose:</strong> To provide skills to navigate basic life necessities</p>
-                <p><strong>Content:</strong></p>
-                <ul>
-                    <li>Opening a bank account</li>
-                    <li>Basic labor law (know your rights)</li>
-                    <li>Basic reading and writing literacy</li>
-                    <li>Basic numeric literacy</li>
-                </ul>
-                <a href="allCourses.html" class="btn enroll-btn">Enroll</a>
-            </div>
-        </div>
-    </section>
+<div class="course-card">
+    <h3>First Aid</h3>
+    <p><strong>Fees:</strong> R1500</p>
+    <p><strong>Purpose:</strong> To provide first aid awareness and basic support</p>
+    <ul>
+        <li>Wounds and bleeding</li>
+        <li>Burns and fractures</li>
+        <li>Emergency scene management</li>
+        <li>Cardio-Pulmonary Resuscitation (CPR)</li>
+        <li>Respiratory distress</li>
+    </ul>
+</div>
+
+<div class="course-card">
+    <h3>Sewing</h3>
+    <p><strong>Fees:</strong> R1500</p>
+    <p><strong>Purpose:</strong> To provide alterations and new garment tailoring services</p>
+    <ul>
+        <li>Types of stitches</li>
+        <li>Threading a sewing machine</li>
+        <li>Sewing buttons, zips, hems, and seams</li>
+        <li>Alterations</li>
+        <li>Designing and sewing new garments</li>
+    </ul>
+</div>
+
+<div class="course-card">
+    <h3>Landscaping</h3>
+    <p><strong>Fees:</strong> R1500</p>
+    <p><strong>Purpose:</strong> To provide landscaping services for new and established gardens</p>
+    <ul>
+        <li>Indigenous and exotic plants and trees</li>
+        <li>Fixed structures (fountains, statues, benches, tables, built-in braai)</li>
+        <li>Balancing of plant shapes and colors</li>
+        <li>Aesthetics of plant shapes and colors</li>
+        <li>Garden layout</li>
+    </ul>
+</div>
+
+<div class="course-card">
+    <h3>Life Skills</h3>
+    <p><strong>Fees:</strong> R1500</p>
+    <p><strong>Purpose:</strong> To provide skills to navigate basic life necessities</p>
+    <ul>
+        <li>Opening a bank account</li>
+        <li>Basic labor law (know your rights)</li>
+        <li>Basic reading and writing literacy</li>
+        <li>Basic numeric literacy</li>
+    </ul>
+</div>
+
+<div class="enroll-form">
+    <h4>Enrollment Form</h4>
+    <input type="text" placeholder="Enter full name">
+    <input type="email" placeholder="Enter your email">
+    <input type="tel" placeholder="Cellphone number">
+    <button>Enroll</button>
+</div>
+
+<div class="footer-links">
+    <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+</div>
+
+<div class="footer-bottom">
+    <p>&copy; 2024 Empowering the Nation. All Rights Reserved.</p>
+</div>
+
 </body>
 </html>
