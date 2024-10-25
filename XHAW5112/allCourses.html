@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six-Week Courses Enrollment - Empower The Nation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Course Section */
+        .course-page {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-page h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .enrollment-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .enrollment-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0073e6;
+        }
+
+        .enrollment-form input, 
+        .enrollment-form select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .enrollment-form input:focus, 
+        .enrollment-form select:focus {
+            background-color: #e6f2ff;
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Selected Course Display */
+        #selected-course {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <script>
+        // Function to validate the form and display the selected course
+        function validateForm() {
+            const courseSelect = document.getElementById("course-select-form");
+            const selectedCourse = courseSelect.value;
+
+            if (selectedCourse === "") {
+                alert("Please select a course.");
+                return false;
+            }
+
+            // Display the selected course
+            document.getElementById("selected-course").innerHTML = "You have selected: " + selectedCourse;
+
+            return true;
+        }
+
+        // Function to update the selected course when a user changes the course selection
+        function displaySelectedCourse() {
+            const courseSelect = document.getElementById("course-select-form");
+            const selectedCourse = courseSelect.value;
+
+            document.getElementById("selected-course").innerHTML = "You have selected: " + selectedCourse;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="HomePage.html">Empower The Nation</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="sixMonthsCoursesPage.html">Six Month Courses</a></li>
+                    <li><a href="sixWeekCoursesPage.html">Six Week Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="calculateFees.html">Calculate Fees</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-page">
+        <h2>Select Your Course and Enroll</h2>
+
+        <div class="enrollment-form">
+            <h3>Enrollment Form</h3>
+
+            <!-- Form to pass data to payment page -->
+            <form action="PaymentPage.html" method="GET" onsubmit="return validateForm()">
+                <input type="text" name="fullname" placeholder="Full Name" required><br>
+                <input type="email" name="email" placeholder="Email Address" required><br>
+                <input type="tel" name="phone" placeholder="Phone Number" required><br>
+
+               <!-- Course selection -->
+                    <label for="course-select-form">Course:</label>
+                    <select id="course-select-form" name="course" onchange="displaySelectedCourse()" required>
+                        <option value="" disabled selected>-- Select a Course --</option>
+                        <option value="Garden Maintenance - R750">Garden Maintenance - R750</option>
+                        <option value="Cooking - R750">Cooking - R750</option>
+                        <option value="Child Minding - R750">Child Minding - R750</option>
+                        <option value="Cleaning Services - R750">Cleaning Services - R750</option>
+                        <option value="Basic Computer Skills - R750">Basic Computer Skills - R750</option>
+                        <option value="Sewing and Tailoring - R750">Sewing and Tailoring - R750</option>
+                        <option value="Personal Care - R750">Personal Care - R750</option>
+                        <option value="Gardening Techniques - R750">Gardening Techniques - R750</option>
+                        <option value="Entrepreneurship - R750">Entrepreneurship - R750</option>
+                        <option value="First Aid Training - R750">First Aid Training - R750</option>
+                        <option value="Food Safety and Hygiene - R750">Food Safety and Hygiene - R750</option>
+                        <option value="Financial Literacy - R750">Financial Literacy - R750</option>
+                        <option value="Home Maintenance - R750">Home Maintenance - R750</option>
+                    </select><br>
+
+                <!-- Display selected course dynamically -->
+                <p id="selected-course"></p>
+
+                <!-- Submit button to take user to payment page -->
+                <button type="submit" class="btn pay-btn">Enroll & Pay</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

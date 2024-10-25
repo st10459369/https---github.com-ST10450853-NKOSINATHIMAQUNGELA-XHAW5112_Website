@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Fees - Empower The Nation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #82dbeb;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            transition: color 0.3s;
+        }
+
+        header h1 a:hover {
+            color: #ffcc00;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Fee Calculator Section */
+        .fee-calculator {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .fee-calculator h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #82dbeb;
+        }
+
+        .fee-calculator p {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Form Styling */
+        .course-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .course-options label {
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .calculate-btn {
+            background-color: #82dbeb;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .calculate-btn:hover {
+            background-color: #82dbeb;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #result h3 {
+            font-size: 24px;
+            color: #82dbeb;
+        }
+
+        #discountMessage {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #82dbeb;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .fee-calculator {
+                padding: 20px;
+            }
+
+            .fee-calculator h2 {
+                font-size: 24px;
+            }
+
+            .calculate-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="HomePage.html">Empower The Nation</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="sixMonthsCoursesPage.html">Six Month Courses</a></li>
+                    <li><a href="sixWeekCoursesPage.html">Six Week Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="calculateFees.html">Calculate Fees</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="fee-calculator">
+        <h2>Calculate Your Course Fees</h2>
+        <p>Select the courses you want to enroll in, and see the total fee with applicable discounts.</p>
+
+        <form id="courseForm">
+            <div class="course-options">
+                <label>
+                    <input type="checkbox" class="course" value="1500"> First Aid (R1500)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="1500"> Sewing (R1500)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="1500"> Landscaping (R1500)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="1500"> Life Skills (R1500)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="750"> Garden Maintenance (R750)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="750"> Cooking (R750)
+                </label>
+                <label>
+                    <input type="checkbox" class="course" value="750"> Child Minding (R750)
+                </label>
+
+                <button type="button" class="btn calculate-btn" onclick="calculateFees()">Calculate Total Fees</button>
+            </div>
+          
+        </form>
+
+        <div id="result">
+            <h3>Total Cost: <span id="totalCost">R0</span></h3>
+            <p id="discountMessage"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Empower The Nation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateFees() {
+            const courses = document.querySelectorAll('.course:checked');
+            let totalCost = 0;
+            let discountMessage = '';
+
+            courses.forEach(course => {
+                totalCost += parseInt(course.value);
+            });
+
+            // Calculate discounts
+            if (totalCost >= 6000) {
+                discountMessage = 'You qualify for a 20% discount!';
+                totalCost *= 0.8; // Apply 20% discount
+            } else if (totalCost >= 3000) {
+                discountMessage = 'You qualify for a 10% discount!';
+                totalCost *= 0.9; // Apply 10% discount
+            } else {
+                discountMessage = 'No discounts available.';
+            }
+
+            // Update the result section
+            document.getElementById('totalCost').textContent = `R${totalCost.toFixed(2)}`;
+            document.getElementById('discountMessage').textContent = discountMessage;
+        }
+    </script>
+</body>
+</html>
